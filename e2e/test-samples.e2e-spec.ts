@@ -25,9 +25,23 @@ describe('angular-todolist-end-to-end App', () => {
     // expect(page.getParagraphText()).toEqual('Welcome to app!!');
   });
 
-/*
 
   it('should find green element', () => {
+
+    browser.get('/');
+
+    let greenParagraph = element(by.css('p.green'));
+    // console.log(greenParagraph);
+    let text = greenParagraph.getText();
+
+    console.log(text);
+
+    expect(text).toEqual('green paragraph');
+   });
+
+
+  /*
+it('should find yellow elements', () => {
 
     browser.get('/');
 
@@ -51,7 +65,6 @@ describe('angular-todolist-end-to-end App', () => {
 
   });
 */
-
 
 });
 
