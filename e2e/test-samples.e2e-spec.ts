@@ -31,40 +31,77 @@ describe('angular-todolist-end-to-end App', () => {
     browser.get('/');
 
     let greenParagraph = element(by.css('p.green'));
-    // console.log(greenParagraph);
+
     let text = greenParagraph.getText();
 
-    console.log(text);
+    // console.log(greenParagraph);
+    // debugger;
+    // console.log(text);
 
     expect(text).toEqual('green paragraph');
-   });
+  });
 
-
-  /*
-it('should find yellow elements', () => {
+  it('should find yellow element from few elements', () => {
 
     browser.get('/');
 
-    let greenParagraph = element(by.css('p.green'));
-    // console.log(greenParagraph);
-    let text = greenParagraph.getText();
+    let yellowParagraph = element(by.css('p.yellow'));
 
-    console.log(text);
+    let text = yellowParagraph.getText();
 
-    expect(text).toEqual('green paragraph');
-
-
-    // expect(page.getParagraphText()).toEqual('Welcome to app!!');
-    // let greenParagraphs = element.all(by.css('p.green'));
-    //
-    // let greenParagraph = element(by.css('p.green'));
-    // let text = greenParagraph.getText();
-
-    // let blueParagraphsList = elements.all(by("p.blue"));
-    // let count = blueParagraphsList.count();
-
+    expect(text).toEqual('yellow paragraph 1');
   });
-*/
+
+
+  it('should find yellow elements - all', () => {
+
+    browser.get('/');
+
+    let yellowParagraphs = element.all(by.css('p.yellow'));
+
+    expect(yellowParagraphs.count()).toEqual(3);
+  });
+
+//
+
+
+  //
+  // // let text           = yellowParagraphs[1].getText();
+  // //
+  // // console.log(text);
+  //
+  // // expect(text).toEqual('green paragraph 2');
+  //
+  //
+  // // expect(page.getParagraphText()).toEqual('Welcome to app!!');
+  // // let greenParagraphs = element.all(by.css('p.green'));
+  // //
+  // // let yellowParagraphs = element(by.css('p.green'));
+  // // let text = yellowParagraphs.getText();
+  //
+  // // let blueParagraphsList = elements.all(by("p.blue"));
+  // // let count = blueParagraphsList.count();
+  //
+  //
+  //
+  // // browser.pause();
+  // // debugger;
+  // //     browser.debugger();
+  // console.log('aaa');
+  // console.log(yellowParagraphs.count());
+
+  /*
+      try {
+        console.log(yellowParagraphs[ 0 ]);
+        expect(yellowParagraphs[ 0 ].getText()).toEqual('Welcome to app!!');
+      }
+      catch (e) {
+        console.log('err', e);
+      }
+
+      console.log('zzz');
+  */
+
 
 });
 
