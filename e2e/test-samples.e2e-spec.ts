@@ -113,14 +113,10 @@ describe('angular-todolist-end-to-end App', () => {
     browser.get('/');
 
     setTimeout(() => {
-      let todosBefore = element.all(by.css('a.todo'));
-      expect(todosBefore.count()).toEqual(3);
 
       let button = element.all(by.css('input'));
       expect(button.count()).toEqual(2);
 
-      let submitButton = element.all(by.css('input[type="submit"]'));
-      expect(submitButton.count()).toEqual(1);
 
       let textBox = element.all(by.css('input[type="text"]'));
       expect(textBox.count()).toEqual(1);
@@ -132,14 +128,31 @@ describe('angular-todolist-end-to-end App', () => {
       let todo0 = element.all(by.linkText('Todo 21'));
       expect(todo0.count()).toEqual(0);
 
+      let submitButton = element.all(by.css('input[type="submit"]'));
+      expect(submitButton.count()).toEqual(1);
 
-      // input type="submit"
+      let todos = element.all(by.css('a.todo'));
+      expect(todos.count()).toEqual(3);
+
+      //trigger click - no text
+
+      submitButton.click();
+      expect(todos.count()).toEqual(3);
+
+      //trigger click - new todo
+
+      textBox.sendKeys("Todo 444");
+      submitButton.click();
+
+      expect(todos.count()).toEqual(4);
+
+      let todo4 = element.all(by.linkText('Todo 444'));
+      expect(todo4.count()).toEqual(1);
+
     }, 800)
 
 
-    //trigger click - no text
 
-    //trigger click - new todo
 
 
   });
