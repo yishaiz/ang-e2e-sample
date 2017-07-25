@@ -14,6 +14,10 @@ describe('angular-todolist-end-to-end App', () => {
     page = new AngularTodolistEndToEndPage();
   });
 
+  // this group of test is in comment due to conflict
+
+  /*
+
   it('should do something...', () => {
 
     browser.get('/');
@@ -62,9 +66,115 @@ describe('angular-todolist-end-to-end App', () => {
     expect(yellowParagraphs.count()).toEqual(3);
   });
 
+
+  it('get button - will fail', () => {
+
+    browser.get('/');
+
+    // let todosBefore = element.all(by.css('a.todo'));
+    let todosBefore = element.all(by.css('a'));
+
+    expect(todosBefore.count()).toEqual(3);
+
+    let submitButton = element.all(by.css('input'));
+
+    expect(submitButton.count()).toEqual(2);
+  });
+
+  it('should use click event - test controls ', () => {
+
+    browser.get('/');
+
+    setTimeout(() => {
+      let todosBefore = element.all(by.css('a.todo'));
+      expect(todosBefore.count()).toEqual(3);
+
+      let button = element.all(by.css('input'));
+      expect(button.count()).toEqual(2);
+
+      let submitButton = element.all(by.css('input[type="submit"]'));
+      expect(submitButton.count()).toEqual(1);
+
+      // input type="submit"
+    }, 800)
+
+
+    //trigger click - no text
+
+    //trigger click - new todo
+
+  });
+
+*/
+
+
+  it('should use click event - test controls ', () => {
+
+    browser.get('/');
+
+    setTimeout(() => {
+      let todosBefore = element.all(by.css('a.todo'));
+      expect(todosBefore.count()).toEqual(3);
+
+      let button = element.all(by.css('input'));
+      expect(button.count()).toEqual(2);
+
+      let submitButton = element.all(by.css('input[type="submit"]'));
+      expect(submitButton.count()).toEqual(1);
+
+      let textBox = element.all(by.css('input[type="text"]'));
+      expect(textBox.count()).toEqual(1);
+
+      // let todo1 = element.all(by.css('a[text="Todo 1"]'));
+      let todo1 = element.all(by.linkText('Todo 1'));
+      expect(todo1.count()).toEqual(1);
+
+      let todo0 = element.all(by.linkText('Todo 21'));
+      expect(todo0.count()).toEqual(0);
+
+
+      // input type="submit"
+    }, 800)
+
+
+    //trigger click - no text
+
+    //trigger click - new todo
+
+
+  });
+
+  /*
+
+    it('should use click event - test controls ', () => {
+      browser.manage().timeouts().pageLoadTimeout(3000);  // 10 seconds
+      browser.get('/');
+
+      browser.sleep(1000).then(()=>{
+        let todosBefore = element.all(by.css('a.todo'));
+
+        expect(todosBefore.count()).toEqual(3);
+
+        let submitButton = element.all(by.css('input'));
+
+        expect(todosBefore.count()).toEqual(2);
+
+      });
+      // setTimeout(() => {
+        // input type="submit"
+      // }, 1000)
+
+
+      //trigger click - no text
+
+      //trigger click - new todo
+
+
+    });
+  */
+
+
 //
-
-
   //
   // // let text           = yellowParagraphs[1].getText();
   // //
