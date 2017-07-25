@@ -105,10 +105,10 @@ describe('angular-todolist-end-to-end App', () => {
 
   });
 
-*/
 
 
-  it('should use click event - test controls ', () => {
+
+  it('should use click event', () => {
 
     browser.get('/');
 
@@ -156,6 +156,23 @@ describe('angular-todolist-end-to-end App', () => {
 
 
   });
+*/
+
+
+  it("should be able to click on a todo and get the details page", () => {
+
+    browser.get("/");
+
+    let firstTodo     = element.all(by.css(".todos .todo")).first();
+    let firstTodoText = firstTodo.getText();
+
+    firstTodo.click();
+
+    let inputFieldText = element(by.css("todo input[type=text]"))
+      .getAttribute("value");
+
+    expect(inputFieldText).toEqual(firstTodoText);
+  })
 
   /*
 
