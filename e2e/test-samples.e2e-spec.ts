@@ -174,6 +174,40 @@ describe('angular-todolist-end-to-end App', () => {
     expect(inputFieldText).toEqual(firstTodoText);
   })
 
+  it("should NOT be able to save an empty todo", () => {
+
+    browser.get("/");
+
+    let newTodoInput        = element(by.css(".add-todo input[type=text]"));
+    let newTodoSubmitButton = element(by.css(".add-todo input[type=submit]"));
+
+    newTodoSubmitButton.click();
+
+    let todos = element.all(by.css(".todos .todo"));
+
+    expect(todos.count()).toEqual(3);
+  })
+
+  it("should have add todo button be disabled initially", () => {
+    browser.get("/");
+
+    let newTodoSubmitButton = element(by.css(".add-todo input[type=submit]"));
+
+    expect(newTodoSubmitButton.isEnabled()).toEqual(false);
+  })
+
+
+  it("should only enable save todo button when we start typing a new todo title", () => {
+    browser.get("/");
+
+    let newTodoSubmitButton = element(by.css(".add-todo input[type=submit]"));
+    let newTodoInputField   = element(by.css(".add-todo input[type=text]"));
+
+    newTodoInputField.sendKeys("New Todo 4");
+
+    expect(newTodoSubmitButton.isEnabled()).toEqual(true);
+  })
+
   /*
 
     it('should use click event - test controls ', () => {
